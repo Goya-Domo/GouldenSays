@@ -10,8 +10,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.marshall.gouldensays.MainActivity">
 
-    <TextView
+    <Button
+        android:text="@string/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:onClick="startGame"/>
 </RelativeLayout>

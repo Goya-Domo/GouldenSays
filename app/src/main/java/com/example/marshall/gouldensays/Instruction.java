@@ -42,6 +42,8 @@ public class Instruction {
     private int getRandButton()
     {
         int butt = game.getRng().nextInt() % 10;
+        if (butt < 0)
+            butt *= -1;
 
         if (butt >= numButtons)
             butt = getRandButton();
