@@ -1,12 +1,14 @@
 package com.example.marshall.gouldensays;
 
+import android.view.View;
+
 /**
  * Created by Marshall on 10/13/2016.
  */
 
 public class Instruction {
 
-    private int numButtons;
+    private static int numButtons;
 
     //Using object of type Integer instead of int because Integer is nullable (We may have instructions that don't correspond to a particular button)
     private Integer button;
@@ -28,9 +30,16 @@ public class Instruction {
 
 
     //compares user input to the instruction that was given at this stage
-    public boolean inputMatchesInstruction()
+    public boolean inputMatchesInstruction(View view)
     {
-        return true;
+        if (button != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public int getButton()
@@ -49,6 +58,11 @@ public class Instruction {
             butt = getRandButton();
 
         return butt;
+    }
+
+    public static int getNumButtons()
+    {
+        return numButtons;
     }
 
 }

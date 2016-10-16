@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity
 {
-    private int index;
+    private int instIndex;
+    private int responseIndex;
     private Game game;
     private ArrayList<Instruction> instructionList;
 
@@ -24,7 +25,8 @@ public class GameActivity extends AppCompatActivity
 
         game = new Game();
         instructionList = new ArrayList<>();
-        index = 0;
+        instIndex = 0;
+        responseIndex = 0;
 
         addNextInstruction();
         playNextInstruction();
@@ -32,17 +34,17 @@ public class GameActivity extends AppCompatActivity
 
     private void playNextInstruction()
     {
-        if (index >= instructionList.size())
+        if (instIndex >= instructionList.size())
         {
-            index = 0;
+            instIndex = 0;
             return;
         }
 
         Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.buttonsig);
 
-        Toast.makeText(getApplicationContext(), String.valueOf(instructionList.get(index).getButton()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), String.valueOf(instructionList.get(instIndex).getButton()), Toast.LENGTH_SHORT).show();
 
-        switch ((instructionList.get(index)).getButton())
+        switch ((instructionList.get(instIndex)).getButton())
         {
             case 0: findViewById(R.id.btn0).startAnimation(shake);
                 break;
@@ -57,7 +59,7 @@ public class GameActivity extends AppCompatActivity
             public void onAnimationStart(Animation a){}
             public void onAnimationRepeat(Animation a){}
             public void onAnimationEnd(Animation a){
-                index++;
+                instIndex++;
                 playNextInstruction();
             }
             });
