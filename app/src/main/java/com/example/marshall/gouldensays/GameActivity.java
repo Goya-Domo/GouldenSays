@@ -46,13 +46,13 @@ public class GameActivity extends AppCompatActivity
 
         switch ((instructionList.get(instIndex)).getButton())
         {
-            case 0: findViewById(R.id.btn0).startAnimation(shake);
+            case 0: findViewById(R.id.red_hex).startAnimation(shake);
                 break;
-            case 1: findViewById(R.id.btn1).startAnimation(shake);
+            case 1: findViewById(R.id.blue_hex).startAnimation(shake);
                 break;
-            case 2: findViewById(R.id.btn2).startAnimation(shake);
+            case 2: findViewById(R.id.green_hex).startAnimation(shake);
                 break;
-            case 3: findViewById(R.id.btn3).startAnimation(shake);
+            case 3: findViewById(R.id.yellow_hex).startAnimation(shake);
         }
 
         shake.setAnimationListener(new Animation.AnimationListener(){
