@@ -1,68 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:weightSum="1">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_centerVertical="true"
+    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button1"/>
-
-    </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.83"
-        android:padding="20dp">
-
-        <TableRow>
-            <ImageView
-                android:id="@+id/red_hex"
-                android:src="@drawable/red_hex"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="0"/>
-
-            <ImageView
-                android:id="@+id/blue_hex"
-                android:src="@drawable/blue_hex"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="1"/>
-        </TableRow>
-
-        <TableRow>
-            <ImageView
-                android:id="@+id/green_hex"
-                android:src="@drawable/green_hex"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="2"/>
             <ImageView
                 android:id="@+id/yellow_hex"
                 android:src="@drawable/yellow_hex"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="hexClick"
                 android:text="3"/>
-        </TableRow>
-    </TableLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/red_hex"
+                android:src="@drawable/red_hex"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="130dp"
+                android:onClick="hexClick"
+                android:text="0"/>
 
-        <Button
+            <ImageView
+                android:id="@+id/green_hex"
+                android:src="@drawable/green_hex"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="76dp"
+                android:onClick="hexClick"
+                android:text="2"/>
+            <ImageView
+                android:id="@+id/blue_hex"
+                android:src="@drawable/blue_hex"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="76dp"
+                android:onClick="hexClick"
+                android:text="1"/>
+
+            <ImageView
+                android:id="@+id/black_hex"
+                android:src="@drawable/black_hex"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="65dp"
+                android:layout_marginTop="38dp"
+                android:onClick="hexClick"
+                android:visibility="invisible"
+                android:text="1"/>
+    </RelativeLayout>
+
+
+    <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exit"
             android:onClick="exitToMenu"/>
-    </LinearLayout>
 
 </LinearLayout>

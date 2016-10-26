@@ -1,6 +1,10 @@
 package com.example.marshall.gouldensays;
 
 import java.util.Random;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.Animation;
+import android.view.View;
 
 /**
  * Created by Marshall on 10/15/2016.

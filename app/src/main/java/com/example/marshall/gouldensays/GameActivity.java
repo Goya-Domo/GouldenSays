@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -76,5 +78,27 @@ public class GameActivity extends AppCompatActivity
         Intent intent = new Intent(this, MainActivity.class);
 
         startActivity(intent);
+    }
+    public void rotation(View view, int direction)
+    {
+        RotateAnimation anim;
+        if(direction > 1)
+        {
+            anim = new RotateAnimation(0.0f, 60.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        }
+        else
+        {
+            anim = new RotateAnimation(60.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        }
+        anim.setInterpolator(new LinearInterpolator());
+
+        anim.setDuration(200); //Put desired duration per anim cycle here, in milliseconds
+
+        view.startAnimation(anim);
+    }
+
+    public void hexClick(View view)
+    {
+        rotation(view, 1);
     }
 }
