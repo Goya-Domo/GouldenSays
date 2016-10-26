@@ -18,12 +18,18 @@ public class GameActivity extends AppCompatActivity
     private int responseIndex;
     private Game game;
     private ArrayList<Instruction> instructionList;
+    //private ArrayList<View> images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_layout);
+
+       /* images.add(findViewById(R.id.yellow_hex));
+        images.add(findViewById(R.id.red_hex));
+        images.add(findViewById(R.id.green_hex));
+        images.add(findViewById(R.id.blue_hex));*/
 
         game = new Game();
         instructionList = new ArrayList<>();
@@ -79,6 +85,25 @@ public class GameActivity extends AppCompatActivity
 
         startActivity(intent);
     }
+
+    public void hexClick(View view)
+    {
+        rotation(view, 1);
+    }
+
+    /*public void addButton5()
+    {
+        images.add(findViewById(R.id.black_hex));
+        foreach (View img: images)
+        {
+
+        }
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(img.getLayoutParams());
+        lp.setMargins(50, 100, 0, 0);
+        img.setLayoutParams(lp);
+
+    }*/
+
     public void rotation(View view, int direction)
     {
         RotateAnimation anim;
@@ -97,8 +122,5 @@ public class GameActivity extends AppCompatActivity
         view.startAnimation(anim);
     }
 
-    public void hexClick(View view)
-    {
-        rotation(view, 1);
-    }
+
 }
