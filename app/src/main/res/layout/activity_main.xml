@@ -4,15 +4,15 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#bababa"
+    android:background="#505050"
     android:layout_gravity="center"
     android:layout_centerVertical="true"
     tools:context="com.example.marshall.gouldensays.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:src="@drawable/coolest_interlace"/>
+        android:layout_height="wrap_content"
+        android:src="@drawable/hexterity_logo"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
