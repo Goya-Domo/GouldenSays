@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <integer name="int0">0</integer>
+    <integer name="int1">1</integer>
+    <integer name="int2">2</integer>
+    <integer name="int3">3</integer>
+    <integer name="int4">4</integer>
+    <integer name="int5">5</integer>
+</resources>
