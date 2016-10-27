@@ -8,22 +8,12 @@ import android.view.View;
 
 public class Instruction {
 
-    private static int numButtons;
-
     //Using object of type Integer instead of int because Integer is nullable (We may have instructions that don't correspond to a particular button)
     private Integer button;
     private Game game;
 
     public Instruction(Game game)
     {
-        numButtons = 4;
-        this.game = game;
-        button = getRandButton();
-    }
-
-    public Instruction(Game game, int numButtons)
-    {
-        this.numButtons = numButtons;
         this.game = game;
         button = getRandButton();
     }
@@ -54,15 +44,10 @@ public class Instruction {
         if (butt < 0)
             butt *= -1;
 
-        if (butt >= numButtons)
+        if (butt >= game.getNumButtons())
             butt = getRandButton();
 
         return butt;
-    }
-
-    public static int getNumButtons()
-    {
-        return numButtons;
     }
 
 }
