@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#505050"
+    android:background="@drawable/gradient_grayer"
     android:layout_gravity="center"
     android:layout_centerVertical="true"
     tools:context="com.example.marshall.gouldensays.MainActivity">
@@ -68,6 +68,78 @@
             android:src="@drawable/white_hex"
 
             />
+        <TextView
+            android:id="@+id/start_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/start"
+            android:layout_alignTop="@+id/start"
+            android:layout_alignRight="@+id/start"
+            android:layout_alignBottom="@+id/start"
+            android:layout_margin="1dp"
+            android:gravity="center"
+            android:text="START"
+            android:textStyle="bold"
+            android:textSize="16pt"
+            android:textAllCaps="true"
+            android:textColor="#a000a0" />
+        <TextView
+            android:id="@+id/about_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/about"
+            android:layout_alignTop="@+id/about"
+            android:layout_alignRight="@+id/about"
+            android:layout_alignBottom="@+id/about"
+            android:layout_margin="1dp"
+            android:gravity="center"
+            android:text="ABOUT"
+            android:textSize="8pt"
+            android:textAllCaps="true"
+            android:textColor="#a000a0" />
+        <TextView
+            android:id="@+id/sounds_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/sounds"
+            android:layout_alignTop="@+id/sounds"
+            android:layout_alignRight="@+id/sounds"
+            android:layout_alignBottom="@+id/sounds"
+            android:layout_margin="1dp"
+            android:gravity="center"
+            android:text="SOUNDS"
+            android:textSize="8pt"
+            android:textAllCaps="true"
+            android:textColor="#a000a0" />
+        <TextView
+            android:id="@+id/settings_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/settings"
+            android:layout_alignTop="@+id/settings"
+            android:layout_alignRight="@+id/settings"
+            android:layout_alignBottom="@+id/settings"
+            android:layout_margin="1dp"
+            android:gravity="center"
+            android:text="SETTINGS"
+            android:textSize="8pt"
+            android:textAllCaps="true"
+            android:textColor="#a000a0" />
+        <TextView
+            android:id="@+id/how_to_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/how_to"
+            android:layout_alignTop="@+id/how_to"
+            android:layout_alignRight="@+id/how_to"
+            android:layout_alignBottom="@+id/how_to"
+            android:layout_margin="1dp"
+            android:gravity="center"
+            android:text="HOW TO PLAY"
+            android:textSize="8pt"
+            android:textAllCaps="true"
+            android:textColor="#a000a0" />
+
     </RelativeLayout>
 
 </RelativeLayout>
