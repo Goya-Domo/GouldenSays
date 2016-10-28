@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@layout/gradient_background"
+    android:background="@drawable/gradient_background"
     android:layout_gravity="center"
     android:layout_centerVertical="true"
     tools:context="com.example.marshall.gouldensays.MainActivity">
@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/hexterity_logo"/>
+        android:src="@drawable/hexterity_3d"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
             android:textStyle="bold"
             android:textSize="16pt"
             android:textAllCaps="true"
-            android:textColor="#a000a0" />
+            android:textColor="#b044f0" />
         <TextView
             android:id="@+id/about_text"
             android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
             android:text="ABOUT"
             android:textSize="8pt"
             android:textAllCaps="true"
-            android:textColor="#a000a0" />
+            android:textColor="#b044f0" />
         <TextView
             android:id="@+id/sounds_text"
             android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
             android:text="SOUNDS"
             android:textSize="8pt"
             android:textAllCaps="true"
-            android:textColor="#a000a0" />
+            android:textColor="#b044f0" />
         <TextView
             android:id="@+id/settings_text"
             android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
             android:text="SETTINGS"
             android:textSize="8pt"
             android:textAllCaps="true"
-            android:textColor="#a000a0" />
+            android:textColor="#b044f0" />
         <TextView
             android:id="@+id/how_to_text"
             android:layout_width="wrap_content"
@@ -138,7 +138,7 @@
             android:text="HOW TO PLAY"
             android:textSize="8pt"
             android:textAllCaps="true"
-            android:textColor="#a000a0" />
+            android:textColor="#b044f0" />
 
     </RelativeLayout>
 
