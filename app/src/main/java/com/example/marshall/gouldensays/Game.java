@@ -106,7 +106,8 @@ public class Game
         boolean correct = true;
         if (!animating)
         {
-            rotation(view, true);
+            rotation(view, animationAlternator);
+            animationAlternator = !animationAlternator;
             try
             {
                 int hexNum = Integer.parseInt((String) view.getTag());
@@ -136,6 +137,7 @@ public class Game
                 else
                 {
                     correct = false;
+                    animating = true;
                     for (ImageView iv : buttons)
                     {
                         if (iv.getVisibility() == View.VISIBLE)
