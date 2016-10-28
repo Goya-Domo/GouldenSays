@@ -27,6 +27,7 @@ public class Game
     private boolean animationAlternator; //To alternate hex spinning while showing instructions
     private ArrayList<Instruction> instructionList;
     private ArrayList<ImageView> buttons;
+    private GameSpeed speed;
 
     private Random rng;
     public Game(ArrayList<ImageView> buttons)
@@ -37,6 +38,7 @@ public class Game
         rng = new Random();
         seed = rng.nextLong();
         rng.setSeed(seed);
+        speed = GameSpeed.SLOW;
 
         instructionList = new ArrayList<>();
         instIndex = 0;
@@ -207,7 +209,7 @@ public class Game
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(200); //Put desired duration per anim cycle here, in milliseconds
+        anim.setDuration(speed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
         //anim.setStartOffset(100);
 
         view.startAnimation(anim);
@@ -226,8 +228,8 @@ public class Game
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(200 * nTimes); //Put desired duration per anim cycle here, in milliseconds
-        anim.setStartOffset(100);
+        anim.setDuration(speed.animSpeed * nTimes); //Put desired duration per anim cycle here, in milliseconds
+        anim.setStartOffset(speed.pauseLength);
 
         view.startAnimation(anim);
         return anim;
@@ -249,6 +251,22 @@ public class Game
     public Random getRng()
     {
         return rng;
+    }
+
+    //We will use this in the animation code to allow user to set animation speed.
+        //This may need to go elsewhere to allow the user to select it outside of the game (ie from mainMenu->settings)
+    private enum GameSpeed{
+        SLOW (200, 100),
+        MED(150, 80),
+        FAST(100, 60);
+
+        private final int animSpeed;
+        private final int pauseLength;
+
+        GameSpeed(int animSpeed, int pauseLength) {
+            this.animSpeed = animSpeed;
+            this.pauseLength = pauseLength;
+        }
     }
 
 }
