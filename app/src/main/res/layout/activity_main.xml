@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_grayer"
+    android:background="@layout/gradient_background"
     android:layout_gravity="center"
     android:layout_centerVertical="true"
     tools:context="com.example.marshall.gouldensays.MainActivity">
