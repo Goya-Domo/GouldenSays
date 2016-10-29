@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class GameActivity extends AppCompatActivity
 {
     private Game game;
-    //private ArrayList<View> images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,19 +42,5 @@ public class GameActivity extends AppCompatActivity
     {
         game.addHex();
     }
-
-    /*public void addButton5()
-    {
-        images.add(findViewById(R.id.black_hex));
-        foreach (View img: images)
-        {
-
-        }
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(img.getLayoutParams());
-        lp.setMargins(50, 100, 0, 0);
-        img.setLayoutParams(lp);
-
-    }*/
-
 
 }

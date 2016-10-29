@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- created by Hayden 10/28-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_centerVertical="true"
+    android:background="@drawable/gradient_background"
+    android:weightSum="1">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/hexterity_solid"/>
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_weight="0.61">
+        <TextView
+            android:layout_height="300dp"
+            android:layout_width="250dp"
+            android:textSize="9pt"
+            android:textColor="#000000"
+            android:text="Created for Advanced Java course, OCCC fall 2016 \n \n Group members: \n Dylan Milbery \n Hayden Edgmon \n Marshall Reisdorph \n\n  "
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        >
+        <Button
+            android:id="@+id/back"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:onClick="exitToMenu"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/custom_button"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

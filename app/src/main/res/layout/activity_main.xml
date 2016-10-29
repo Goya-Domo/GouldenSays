@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- created by Marshall and Hayden 10/17 through ...-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
@@ -26,6 +27,7 @@
             android:id="@+id/how_to"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:onClick="howToClick"
             android:src="@drawable/white_hex"
 
             />
@@ -36,7 +38,6 @@
             android:layout_height="100dp"
             android:layout_marginTop="100dp"
             android:src="@drawable/white_hex"
-
             />
 
         <ImageView
@@ -65,6 +66,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="230dp"
+            android:onClick="aboutClick"
             android:src="@drawable/white_hex"
 
             />

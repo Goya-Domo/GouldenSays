@@ -19,4 +19,21 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    public void aboutClick(View view)
+    {
+        setContentView(R.layout.about);
+    }
+
+    public void howToClick(View view)
+    {
+        setContentView(R.layout.how_to);
+    }
+
+    public void exitToMenu(View view)
+    {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        startActivity(intent);
+    }
 }

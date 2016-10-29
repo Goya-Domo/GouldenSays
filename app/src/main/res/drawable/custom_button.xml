@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- created by Hayden 10/28-->
+<!-- simple custom button shaping drawable-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle"
     android:padding="0dp"
     android:useLevel = "false"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!-- you can use any color you want I used here gray color-->
+    <!-- you can use any color you want, I used gray-->
     <solid android:color="#cccccc"/>
     <corners
         android:bottomRightRadius="20dp"
