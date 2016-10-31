@@ -8,26 +8,44 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import java.util.ArrayList;
 import android.view.animation.*;
+import android.view.animation.Animation.AnimationListener;
+import android.widget.LinearLayout.LayoutParams;
+import  	android.os.Handler;
+import android.widget.TextView;
+
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<ImageView> mainButtons;
+    private ArrayList<ImageView> mainButtons = new ArrayList<>();
+    private ArrayList<TextView> mainText = new ArrayList<>();
+    final Handler DelayHandler = new Handler();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /* mainButtons.add((ImageView)findViewById(R.id.start));
-        mainButtons.add((ImageView)findViewById(R.id.about));
+
+        setContentView(R.layout.activity_main);
+        mainButtons.add((ImageView)findViewById(R.id.start));
         mainButtons.add((ImageView)findViewById(R.id.how_to));
         mainButtons.add((ImageView)findViewById(R.id.settings));
-        mainButtons.add((ImageView)findViewById(R.id.sounds));*/
-        setContentView(R.layout.activity_main);
+        mainButtons.add((ImageView)findViewById(R.id.about));
+        mainButtons.add((ImageView)findViewById(R.id.sounds));
+
+        mainText.add((TextView)findViewById(R.id.start_text));
+        mainText.add((TextView)findViewById(R.id.how_to_text));
+        mainText.add((TextView)findViewById(R.id.settings_text));
+        mainText.add((TextView)findViewById(R.id.about_text));
+        mainText.add((TextView)findViewById(R.id.sounds_text));
     }
 
     public void startGame(View view)
     {
+        selectionAnimation();
+
         Intent intent = new Intent(this, GameActivity.class);
 
         startActivity(intent);
+
     }
 
     public void aboutClick(View view)
@@ -49,28 +67,49 @@ public class MainActivity extends AppCompatActivity {
 
     //setting up transition animations, pardon the dust
 
-    /*public void selectionAnimation()
+    public void selectionAnimation()
     {
         ImageView image;
+        TextView text;
         for(int i = 0; i < mainButtons.size(); ++i) {
             image = mainButtons.get(i);
+            text = mainText.get(i);
             if (i < 1)
             {
-                TranslateAnimation animation = new TranslateAnimation(0, 50, 0, 100);
-                animation.setDuration(1000);
+                TranslateAnimation animation = new TranslateAnimation(0, 0, 0, 500);
+                animation.setDuration(400);
                 animation.setFillAfter(false);
-                animation.setAnimationListener(new MyAnimationListener());
-
+                //animation.setAnimationListener(new MyAnimationListener(image));
+                //animation.setStartOffset(0);
                 image.startAnimation(animation);
+                text.startAnimation(animation);
+            }
+            else if (i < 3)
+            {
+                TranslateAnimation animation = new TranslateAnimation(0, -200, 0, 0);
+                animation.setDuration(400);
+                animation.setFillAfter(false);
+                image.startAnimation(animation);
+                text.startAnimation(animation);
             }
             else
             {
-
+                TranslateAnimation animation = new TranslateAnimation(0, 200, 0, 0);
+                animation.setDuration(400);
+                animation.setFillAfter(false);
+                image.startAnimation(animation);
+                text.startAnimation(animation);
             }
         }
     }
 
-    private class MyAnimationListener implements AnimationListener{
+   /* private class MyAnimationListener implements AnimationListener{
+
+        private ImageView image;
+        public MyAnimationListener(ImageView theImage)
+        {
+            this.image = theImage;
+        }
 
         @Override
         public void onAnimationEnd(Animation animation) {
