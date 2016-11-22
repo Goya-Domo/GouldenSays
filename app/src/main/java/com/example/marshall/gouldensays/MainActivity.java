@@ -40,11 +40,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void startGame(View view)
     {
-        selectionAnimation();
+        //Create intent that the animation listenter will launch
+        final Intent intent = new Intent(this, GameActivity.class);
 
-        Intent intent = new Intent(this, GameActivity.class);
+        //Start animation w/ listener
+        selectionAnimation().setAnimationListener(new AnimationListener()
+        {
+            @Override
+            public void onAnimationEnd(Animation animation)
+            {
+                //Set buttons and text invisible
+                for (ImageView view : mainButtons)
+                {
+                    view.setVisibility(View.INVISIBLE);
+                }
+                for (TextView text : mainText)
+                {
+                    text.setVisibility(View.INVISIBLE);
+                }
 
-        startActivity(intent);
+                //Start game
+                startActivity(intent);
+            }
+
+            @Override public void onAnimationRepeat(Animation animation) { }
+            @Override public void onAnimationStart(Animation animation) { }
+        });
 
     }
 
@@ -67,8 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
     //setting up transition animations, pardon the dust
 
-    public void selectionAnimation()
+    public TranslateAnimation selectionAnimation()
     {
+        TranslateAnimation retAnim = null;
         ImageView image;
         TextView text;
         for(int i = 0; i < mainButtons.size(); ++i) {
@@ -76,17 +98,16 @@ public class MainActivity extends AppCompatActivity {
             text = mainText.get(i);
             if (i < 1)
             {
-                TranslateAnimation animation = new TranslateAnimation(0, 0, 0, 500);
+                TranslateAnimation animation = new TranslateAnimation(0, 0, 0, 900);
                 animation.setDuration(400);
                 animation.setFillAfter(false);
-                //animation.setAnimationListener(new MyAnimationListener(image));
-                //animation.setStartOffset(0);
+                animation.setStartOffset(200);
                 image.startAnimation(animation);
                 text.startAnimation(animation);
             }
             else if (i < 3)
             {
-                TranslateAnimation animation = new TranslateAnimation(0, -200, 0, 0);
+                TranslateAnimation animation = new TranslateAnimation(0, -500, 0, 0);
                 animation.setDuration(400);
                 animation.setFillAfter(false);
                 image.startAnimation(animation);
@@ -94,13 +115,15 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                TranslateAnimation animation = new TranslateAnimation(0, 200, 0, 0);
-                animation.setDuration(400);
-                animation.setFillAfter(false);
-                image.startAnimation(animation);
-                text.startAnimation(animation);
+                retAnim = new TranslateAnimation(0, 500, 0, 0);
+                retAnim.setDuration(400);
+                retAnim.setFillAfter(false);
+                image.startAnimation(retAnim);
+                text.startAnimation(retAnim);
             }
         }
+
+        return retAnim;
     }
 
    /* private class MyAnimationListener implements AnimationListener{
