@@ -47,7 +47,7 @@ public class Instruction {
         if (butt >= game.getNumButtons())
             butt = getRandButton();
 
-        return butt;
+        return butt; //teehee - Dylan 8===D~~
     }
 
 }
