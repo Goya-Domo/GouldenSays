@@ -1,0 +1,7 @@
+ - Media Player
+    - Play/pause; Next Track; Mute all
+    - sounds button assets
+    - sounds options from menu
+ - Instructions
+ - Points tracking / mechanics system
+    - score display and high score tracking
