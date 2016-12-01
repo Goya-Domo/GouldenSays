@@ -1,6 +1,7 @@
 package com.example.marshall.gouldensays;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,11 +19,13 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<ImageView> mainButtons = new ArrayList<>();
     private ArrayList<TextView> mainText = new ArrayList<>();
     final Handler DelayHandler = new Handler();
+    private MediaPlayer songs;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         setContentView(R.layout.activity_main);
         mainButtons.add((ImageView)findViewById(R.id.start));
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         mainText.add((TextView)findViewById(R.id.settings_text));
         mainText.add((TextView)findViewById(R.id.about_text));
         mainText.add((TextView)findViewById(R.id.sounds_text));
+
+
     }
 
     public void startGame(View view)
