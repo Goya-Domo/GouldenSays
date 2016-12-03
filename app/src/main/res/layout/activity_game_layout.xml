@@ -141,11 +141,12 @@
 
 
         <ImageButton
+            android:id="@+id/seek"
             android:background="@drawable/seek"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
-            android:text="Seek"
-            android:onClick="seek"/>
+            android:onClick="seek"
+            />
 
         <View
             android:layout_width="25dp"
