@@ -5,11 +5,13 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Random;
 
 
 public class GameActivity extends AppCompatActivity
@@ -17,8 +19,9 @@ public class GameActivity extends AppCompatActivity
     private Game game;
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
-    private int trackNumber = 0;
+    private int trackNumber;
     private boolean playPause = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,6 +29,9 @@ public class GameActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_layout);
 
+
+        Random rng = new Random();
+        trackNumber = rng.nextInt(5);
         setPlayers();
 
 
@@ -60,7 +66,15 @@ public class GameActivity extends AppCompatActivity
 
     public void exitToMenu(View view)
     {
-        list.get(trackNumber).pause();
+        list.get(trackNumber).stop();
+        try
+        {
+            list.get(trackNumber).prepare();
+        }
+        catch (Exception ex)
+        {
+
+        }
         Intent intent = new Intent(this, MainActivity.class);
 
         startActivity(intent);
@@ -75,17 +89,22 @@ public class GameActivity extends AppCompatActivity
 
     //media methods
     public void playPause(View view) {
+
         if (playPause)
         {
+            findViewById(R.id.play).setBackgroundResource(R.drawable.play);
             playPause = false;
             list.get(trackNumber).pause();
         }
         else
         {
+            findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
             playPause = true;
             list.get(trackNumber).start();
         }
     }
+
+
 
     public void seek(View view) {
         list.get(trackNumber).stop();
@@ -104,5 +123,6 @@ public class GameActivity extends AppCompatActivity
         }
         list.get(trackNumber).start();
         playPause = true;
+        findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
     }
 }
