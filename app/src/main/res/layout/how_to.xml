@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- created by Hayden 10/28-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -7,39 +8,164 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:layout_centerVertical="true"
+
     android:background="@drawable/gradient_background"
     android:weightSum="1">
-    <ImageView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:src="@drawable/hexterity_solid"/>
+        android:layout_centerVertical="true">
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:onClick="exitToMenu"
+            android:layout_gravity="left"
+            android:background="@drawable/back"
+            android:layout_marginTop="20dp"/>
+        <ImageView
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="right"
 
-    <RelativeLayout
+            android:src="@drawable/hexterity_solid"/>
+    </LinearLayout>
+    <!--<RelativeLayout
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_centerVertical="true"
         android:layout_weight="0.61">
 
-    </RelativeLayout>
+    </RelativeLayout>-->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_centerVertical="true"
         >
-        <Button
+        <LinearLayout
+            android:layout_height="360dp"
+            android:layout_width="300dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:orientation="vertical"
+
+            android:text=""
+            >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+                    <ImageView
+                        android:id="@+id/red_hex"
+                        android:src="@drawable/red_hex"
+                        android:tag="@integer/int1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+
+                        android:rotation="30"
+                        android:layout_below="@+id/yellow_hex"
+                        android:layout_toLeftOf="@+id/yellow_hex"
+
+                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+
+                        android:textColor="#000000"
+                        android:textSize="9pt"
+                        android:text="Buttons will rotate in game in the order you should tap them."/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+                    <ImageView
+                        android:id="@+id/blue_hex"
+                        android:src="@drawable/blue_hex"
+                        android:tag="@integer/int1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+
+                        android:rotation="30"
+                        android:layout_below="@+id/yellow_hex"
+                        android:layout_toLeftOf="@+id/yellow_hex"
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#000000"
+                        android:textSize="9pt"
+                        android:text="Tap the buttons on the order they rotate."/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#000000"
+                        android:textSize="9pt"
+                        android:textStyle="bold"
+                        android:text="The game will add another button to the sequence after you are successful. \nThen it will add more buttons the farther you get."/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#000000"
+                        android:textSize="9pt"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:text="GOOD LUCK!"/>
+
+                </LinearLayout>
+        <!--<Button
             android:id="@+id/back"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+
             android:text="Exit"
             android:textSize="8pt"
             android:textStyle="bold"
             android:onClick="exitToMenu"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/custom_button"/>
-
+            android:background="@drawable/custom_button"/>-->
+            </LinearLayout>
     </RelativeLayout>
 
 

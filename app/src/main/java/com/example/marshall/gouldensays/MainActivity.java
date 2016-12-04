@@ -13,12 +13,14 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.LinearLayout.LayoutParams;
 import  	android.os.Handler;
 import android.widget.TextView;
+import android.view.animation.RotateAnimation;
+import android.view.animation.Animation;
 
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<ImageView> mainButtons = new ArrayList<>();
     private ArrayList<TextView> mainText = new ArrayList<>();
-
+    private GameSpeed speed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         mainText.add((TextView)findViewById(R.id.settings_text));
         mainText.add((TextView)findViewById(R.id.about_text));
         mainText.add((TextView)findViewById(R.id.sounds_text));
+
+        speed = MainActivity.GameSpeed.SLOW;
     }
 
     public void startGame(View view)
@@ -66,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
     {
         setContentView(R.layout.how_to);
     }
+
+    public void soundsClick(View view) { setContentView(R.layout.sounds); }
 
     public void exitToMenu(View view)
     {
@@ -129,5 +135,36 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return retAnim;
+    }
+    public void rotation(View view, boolean clockwise)
+    {
+        RotateAnimation anim;
+        if(clockwise)
+        {
+            anim = new RotateAnimation(0.0f, 60.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        }
+        else
+        {
+            anim = new RotateAnimation(60.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        }
+        anim.setInterpolator(new LinearInterpolator());
+
+        anim.setDuration(speed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
+        //anim.setStartOffset(100);
+
+        view.startAnimation(anim);
+    }
+    private enum GameSpeed{
+        SLOW (200, 100),
+        MED(150, 80),
+        FAST(100, 60);
+
+        private final int animSpeed;
+        private final int pauseLength;
+
+        GameSpeed(int animSpeed, int pauseLength) {
+            this.animSpeed = animSpeed;
+            this.pauseLength = pauseLength;
+        }
     }
 }
