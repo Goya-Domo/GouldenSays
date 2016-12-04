@@ -19,7 +19,7 @@ import android.widget.ImageView;
 public class Game
 {
     private long seed;
-    private int numButtons;
+    private int numButtons, score;
 
     private int instIndex; //Iterates through instructions
     private int responseIndex; //Increments while user inputs responses
@@ -35,6 +35,7 @@ public class Game
         //create a random seed and save it.
         this.buttons = buttons;
         numButtons = 4;
+        score = 0;
         rng = new Random();
         seed = rng.nextLong();
         rng.setSeed(seed);

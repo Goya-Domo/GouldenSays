@@ -82,11 +82,6 @@ public class GameActivity extends AppCompatActivity
 
     public void hexClick(View view) { game.respond(view); }
 
-    public void debugAddHex(View view)
-    {
-        game.addHex();
-    }
-
     //media methods
     public void playPause(View view) {
 
@@ -103,8 +98,6 @@ public class GameActivity extends AppCompatActivity
             list.get(trackNumber).start();
         }
     }
-
-
 
     public void seek(View view) {
         list.get(trackNumber).stop();

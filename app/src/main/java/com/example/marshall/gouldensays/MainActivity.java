@@ -18,14 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<ImageView> mainButtons = new ArrayList<>();
     private ArrayList<TextView> mainText = new ArrayList<>();
-    final Handler DelayHandler = new Handler();
-    private MediaPlayer songs;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         setContentView(R.layout.activity_main);
         mainButtons.add((ImageView)findViewById(R.id.start));
@@ -39,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         mainText.add((TextView)findViewById(R.id.settings_text));
         mainText.add((TextView)findViewById(R.id.about_text));
         mainText.add((TextView)findViewById(R.id.sounds_text));
-
-
     }
 
     public void startGame(View view)
@@ -54,16 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation)
             {
-                //Set buttons and text invisible
-                for (ImageView view : mainButtons)
-                {
-                    view.setVisibility(View.INVISIBLE);
-                }
-                for (TextView text : mainText)
-                {
-                    text.setVisibility(View.INVISIBLE);
-                }
-
                 //Start game
                 startActivity(intent);
             }
@@ -71,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onAnimationRepeat(Animation animation) { }
             @Override public void onAnimationStart(Animation animation) { }
         });
-
     }
 
     public void aboutClick(View view)
@@ -91,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //setting up transition animations, pardon the dust
-
     public TranslateAnimation selectionAnimation()
     {
         TranslateAnimation retAnim = null;
@@ -103,12 +84,12 @@ public class MainActivity extends AppCompatActivity {
             text = mainText.get(i);
             if (i < 1)
             {
-                TranslateAnimation animation = new TranslateAnimation(0, 0, 0, 900);
-                animation.setDuration(400);
-                animation.setFillAfter(false);
-                animation.setStartOffset(200);
-                image.startAnimation(animation);
-                text.startAnimation(animation);
+                retAnim = new TranslateAnimation(0, 0, 0, 900);
+                retAnim.setDuration(400);
+                retAnim.setFillAfter(false);
+                retAnim.setStartOffset(100);
+                image.startAnimation(retAnim);
+                text.startAnimation(retAnim);
             }
             else if (i < 3)
             {
@@ -120,40 +101,33 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                retAnim = new TranslateAnimation(0, 500, 0, 0);
-                retAnim.setDuration(400);
-                retAnim.setFillAfter(false);
-                image.startAnimation(retAnim);
-                text.startAnimation(retAnim);
+                TranslateAnimation anim = new TranslateAnimation(0, 500, 0, 0);
+                anim.setDuration(400);
+                anim.setFillAfter(false);
+                image.startAnimation(anim);
+                text.startAnimation(anim);
+
+                //Anon listener so the buttons stay invisible instead of snapping back into place.
+                anim.setAnimationListener(new AnimationListener()
+                {
+                    @Override
+                    public void onAnimationEnd(Animation animation)
+                    {
+                        //Set buttons and text invisible
+                        for (ImageView view : mainButtons)
+                        {
+                            view.setVisibility(View.INVISIBLE);
+                        }
+                        for (TextView text : mainText)
+                        {
+                            text.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                    @Override public void onAnimationStart(Animation animation) { }
+                    @Override public void onAnimationRepeat(Animation animation) { }
+                });
             }
         }
-
         return retAnim;
     }
-
-   /* private class MyAnimationListener implements AnimationListener{
-
-        private ImageView image;
-        public MyAnimationListener(ImageView theImage)
-        {
-            this.image = theImage;
-        }
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            image.clearAnimation();
-            LayoutParams lp = new LayoutParams(image.getWidth(), image.getHeight());
-            lp.setMargins(50, 100, 0, 0);
-            image.setLayoutParams(lp);
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {
-        }
-
-        @Override
-        public void onAnimationStart(Animation animation) {
-        }
-
-    }*/
 }
