@@ -1,5 +1,4 @@
 package com.example.marshall.gouldensays;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -174,12 +173,14 @@ public class GameActivity extends AppCompatActivity
 
         if (playPause)
         {
+
             findViewById(R.id.play).setBackgroundResource(R.drawable.play);
             playPause = false;
             list.get(trackNumber).pause();
         }
         else
         {
+
             findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
             playPause = true;
             list.get(trackNumber).start();
@@ -206,6 +207,7 @@ public class GameActivity extends AppCompatActivity
     }
 
     public void seek(View view) {
+
         list.get(trackNumber).stop();
         try
         {
