@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<ImageView> mainButtons = new ArrayList<>();
     private ArrayList<TextView> mainText = new ArrayList<>();
-    private GameSpeed speed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         mainText.add((TextView)findViewById(R.id.settings_text));
         mainText.add((TextView)findViewById(R.id.about_text));
         mainText.add((TextView)findViewById(R.id.sounds_text));
-
-        speed = MainActivity.GameSpeed.SLOW;
     }
 
     public void startGame(View view)
@@ -64,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void speedClick(View view)
     {
+        GameSpeed speed = Game.getGameSpeed();
         Button button = (Button)findViewById(R.id.speedButton);
         if(speed == GameSpeed.SLOW)
         {
@@ -80,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             speed = GameSpeed.SLOW;
             button.setText("Slow");
         }
+        Game.setGameSpeed(speed);
     }
 
     public void aboutClick(View view)
@@ -174,23 +173,10 @@ public class MainActivity extends AppCompatActivity {
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(speed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
+        anim.setDuration(Game.getGameSpeed().animSpeed); //Put desired duration per anim cycle here, in milliseconds
         //anim.setStartOffset(100);
 
         view.startAnimation(anim);
     }
 
-    private enum GameSpeed{
-        SLOW (200, 100),
-        MED(150, 80),
-        FAST(100, 60);
-
-        private final int animSpeed;
-        private final int pauseLength;
-
-        GameSpeed(int animSpeed, int pauseLength) {
-            this.animSpeed = animSpeed;
-            this.pauseLength = pauseLength;
-        }
-    }
 }
