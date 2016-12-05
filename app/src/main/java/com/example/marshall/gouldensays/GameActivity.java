@@ -5,11 +5,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -132,7 +128,7 @@ public class GameActivity extends AppCompatActivity
         buttons.add((ImageView)findViewById(R.id.green_hex));
         buttons.add((ImageView)findViewById(R.id.black_hex));
         buttons.add((ImageView)findViewById(R.id.white_hex));
-        game = new Game(buttons);
+        game = new Game(buttons, findViewById(R.id.currentscore));
 
         game.newGame();
     }
