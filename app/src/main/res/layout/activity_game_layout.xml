@@ -21,6 +21,8 @@
             android:layout_width="285dp"
             android:layout_height="103dp"
             android:layout_gravity="right"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="43dp"
             android:src="@drawable/hexterity_solid"/>
 
         <RelativeLayout
