@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Created by Hayden 11/29-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -58,6 +59,25 @@
 
             android:text=""
             >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textSize="9pt"
+                    android:text="Song to start on:"/>
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/songChooser"
+                    android:onClick="soundsClick"
+                    android:text="Random"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_height="wrap_content"
@@ -67,10 +87,7 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#000000"
                 android:textSize="9pt"
-                android:text="Songs are picked at random when you start the game. \n\nYou can seek through songs  by clicking the seek button. \n\nTo pause or mute, press the pause button."/>
-
-
-
+                android:text="You can seek through songs  by clicking the seek button. \n\nTo pause or mute, press the pause button."/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

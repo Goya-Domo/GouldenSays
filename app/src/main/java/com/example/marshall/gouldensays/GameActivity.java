@@ -15,7 +15,8 @@ public class GameActivity extends AppCompatActivity
     private Game game;
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
-    private int trackNumber;
+    private static boolean randomTrack = true;
+    private static int trackNumber;
     private boolean playPause = true;
 
 
@@ -183,6 +184,25 @@ public class GameActivity extends AppCompatActivity
             playPause = true;
             list.get(trackNumber).start();
         }
+    }
+
+    public static int getTrackNumber()
+    {
+        return trackNumber;
+    }
+
+    public static void setTrackNumber(int track) {
+        trackNumber = track;
+    }
+
+    public static boolean getRandomBool()
+    {
+        return randomTrack;
+    }
+
+    public static void setRandomTrack(boolean random)
+    {
+        randomTrack = random;
     }
 
     public void seek(View view) {
