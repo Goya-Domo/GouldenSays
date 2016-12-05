@@ -20,14 +20,14 @@ public class GameActivity extends AppCompatActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_layout);
 
 
         Random rng = new Random();
-        trackNumber = rng.nextInt(5);
+        if (randomTrack)
+            trackNumber = rng.nextInt(5);
         setPlayers();
 
         player1.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
