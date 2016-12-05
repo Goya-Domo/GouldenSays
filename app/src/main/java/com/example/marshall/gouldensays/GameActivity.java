@@ -15,7 +15,7 @@ public class GameActivity extends AppCompatActivity
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
     private static int trackNumber = Settings.song.trackNum;
-    private boolean playPause = true;
+    private static boolean playPause = true;
 
 
     @Override
@@ -213,5 +213,10 @@ public class GameActivity extends AppCompatActivity
         list.get(trackNumber).start();
         playPause = true;
         findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
+    }
+
+    public static boolean getPlayPause ()
+    {
+        return playPause;
     }
 }
