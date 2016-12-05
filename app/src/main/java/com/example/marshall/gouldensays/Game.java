@@ -3,15 +3,12 @@ package com.example.marshall.gouldensays;
 import java.util.ArrayList;
 import java.util.Random;
 
-import android.app.Activity;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Animation;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by Marshall on 10/15/2016.
@@ -49,7 +46,10 @@ public class Game
         rng = new Random();
         seed = rng.nextLong();
         rng.setSeed(seed);
-        speed = GameSpeed.SLOW;
+        if (speed == null)
+        {
+            speed = GameSpeed.SLOW;
+        }
 
         score = 0;
         scoreMulti = 1;

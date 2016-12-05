@@ -59,7 +59,26 @@ public class MainActivity extends AppCompatActivity {
     public void speedClick(View view)
     {
         GameSpeed speed = Game.getGameSpeed();
+        if (speed == null)
+        {
+            speed = GameSpeed.SLOW;
+            Game.setGameSpeed(speed);
+        }
+
         Button button = (Button)findViewById(R.id.speedButton);
+
+        switch (speed)
+        {
+            case SLOW:
+                button.setText("Slow");
+                break;
+            case MED:
+                button.setText("Medium");
+                break;
+            case FAST:
+                button.setText("Fast");
+        }
+
         if(speed == GameSpeed.SLOW)
         {
             speed = GameSpeed.MED;
@@ -75,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             speed = GameSpeed.SLOW;
             button.setText("Slow");
         }
+
         Game.setGameSpeed(speed);
     }
 
@@ -90,7 +110,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void soundsClick(View view) { setContentView(R.layout.sounds); }
 
-    public void settingsClick(View view){ setContentView(R.layout.settings);}
+    public void settingsClick(View view){
+        setContentView(R.layout.settings);
+
+        GameSpeed speed = Game.getGameSpeed();
+        if (speed == null)
+        {
+            speed = GameSpeed.SLOW;
+            Game.setGameSpeed(speed);
+        }
+
+        Button button = (Button)findViewById(R.id.speedButton);
+
+        switch (speed)
+        {
+            case SLOW:
+                button.setText("Slow");
+                break;
+            case MED:
+                button.setText("Medium");
+                break;
+            case FAST:
+                button.setText("Fast");
+        }
+    }
 
     public void exitToMenu(View view)
     {
