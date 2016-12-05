@@ -136,14 +136,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="SETTINGS"
+            android:text="FAST"
             android:textSize="8pt"
             android:textAllCaps="true"
             android:textColor="#b044f0"
-            android:layout_alignBaseline="@+id/sounds_text"
-            android:layout_alignBottom="@+id/sounds_text"
-            android:layout_alignRight="@+id/settings"
-            android:layout_alignEnd="@+id/settings" />
+            android:layout_below="@+id/how_to"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/how_to"
+            android:layout_alignEnd="@+id/how_to"
+            android:layout_alignBottom="@+id/sounds_text"/>
 
     </RelativeLayout>
 
