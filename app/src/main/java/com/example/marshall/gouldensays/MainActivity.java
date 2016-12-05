@@ -125,35 +125,32 @@ public class MainActivity extends AppCompatActivity {
         if(Settings.randSong)
         {
             Settings.randSong = false;
-            Settings.trackNumber = 0;
-            button.setText("Downtown Cab");
+            Settings.song = Song.CAB;
         }
-        else if(Settings.trackNumber == 0)
+        else if (Settings.song == Song.CAB)
         {
-            Settings.trackNumber = 1;
-            button.setText("Linn's Song");
+            Settings.song = Song.LINN;
         }
-        else if(Settings.trackNumber == 1)
+        else if(Settings.song == Song.LINN)
         {
-            Settings.trackNumber = 2;
-            button.setText("Skydive");
+            Settings.song = Song.SKYDIVE;
         }
-        else if(Settings.trackNumber == 2)
+        else if (Settings.song == Song.SKYDIVE)
         {
-            Settings.trackNumber = 3;
-            button.setText("Flying");
+            Settings.song = Song.FLYING;
         }
-        else if(Settings.trackNumber == 3)
+        else if (Settings.song == Song.FLYING)
         {
-            Settings.trackNumber = 4;
-            button.setText("Ruben's");
+            Settings.song = Song.RUBENS;
         }
-        else if(Settings.trackNumber == 4)
+        else if (Settings.song == Song.RUBENS)
         {
             Settings.randSong = true;
-            Settings.trackNumber = 0;
-            button.setText("Random");
+            Settings.song = Song.RANDOM;
         }
+
+        if (button != null)
+            button.setText(Settings.song.name);
     }
 
     public TranslateAnimation selectionAnimation()

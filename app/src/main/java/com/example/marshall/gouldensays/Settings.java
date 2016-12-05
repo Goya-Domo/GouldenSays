@@ -9,7 +9,7 @@ public class Settings
     public static boolean musicPlay = true;
     public static boolean soundPlay = true;
     public static boolean randSong = true;
-    public static int trackNumber = 0;
+    public static Song song = Song.RANDOM;
 
     public static GameSpeed gameSpeed = GameSpeed.SLOW;
 

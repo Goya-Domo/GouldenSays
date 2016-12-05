@@ -2,7 +2,7 @@ package com.example.marshall.gouldensays;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+import android.graphics.Color;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Animation;
@@ -74,6 +74,7 @@ public class Game
         buttons.get(5).setVisibility(View.INVISIBLE);
         score = 0;
         scoreMulti = 1;
+        incrementScore(0);
         scoreView.setText("0");
         instructionList = new ArrayList<>();
         addNextInstruction();
@@ -160,6 +161,10 @@ public class Game
                 {
                     correct = false;
                     animating = true;
+                    if (score > Settings.highScore)
+                    {
+                        Settings.highScore = score;
+                    }
 
                     for (ImageView iv : buttons)
                     {
@@ -204,6 +209,15 @@ public class Game
     private void incrementScore(int base)
     {
         score += base * scoreMulti;
+        if (score > Settings.highScore)
+        {
+            scoreView.setTextColor(Color.GREEN);
+        }
+        else
+        {
+            scoreView.setTextColor(Color.BLACK);
+        }
+
         scoreView.setText(String.valueOf(score));
     }
 
