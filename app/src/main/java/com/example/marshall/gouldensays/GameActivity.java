@@ -34,6 +34,96 @@ public class GameActivity extends AppCompatActivity
         trackNumber = rng.nextInt(5);
         setPlayers();
 
+        player1.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion (MediaPlayer mediaPlayer)
+            {
+                mediaPlayer.stop();
+                try
+                {
+                    mediaPlayer.prepare();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                trackNumber++;
+                player2.start();
+            }
+        });
+        player2.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion (MediaPlayer mediaPlayer)
+            {
+                mediaPlayer.stop();
+                try
+                {
+                    mediaPlayer.prepare();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                trackNumber++;
+                player3.start();
+            }
+        });
+        player3.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion (MediaPlayer mediaPlayer)
+            {
+                mediaPlayer.stop();
+                try
+                {
+                    mediaPlayer.prepare();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                trackNumber++;
+                player4.start();
+            }
+        });
+        player4.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion (MediaPlayer mediaPlayer)
+            {
+                mediaPlayer.stop();
+                try
+                {
+                    mediaPlayer.prepare();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                trackNumber++;
+                player5.start();
+            }
+        });
+        player5.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
+        {
+            @Override
+            public void onCompletion (MediaPlayer mediaPlayer)
+            {
+                mediaPlayer.stop();
+                try
+                {
+                    mediaPlayer.prepare();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                trackNumber=0;
+                player1.start();
+            }
+        });
 
         ArrayList<ImageView> buttons = new ArrayList<>();
         buttons.add((ImageView)findViewById(R.id.yellow_hex));
