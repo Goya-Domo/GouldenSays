@@ -3,15 +3,12 @@ package com.example.marshall.gouldensays;
 import java.util.ArrayList;
 import java.util.Random;
 
-import android.app.Activity;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Animation;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by Marshall on 10/15/2016.
@@ -36,8 +33,6 @@ public class Game
 
     private Random rng;
 
-    private static GameSpeed speed;
-
     public Game(ArrayList<ImageView> buttons, View scoreView)
     {
         //create a random seed and save it.
@@ -49,7 +44,10 @@ public class Game
         rng = new Random();
         seed = rng.nextLong();
         rng.setSeed(seed);
-        speed = GameSpeed.SLOW;
+        if (Settings.gameSpeed == null)
+        {
+            Settings.gameSpeed = GameSpeed.SLOW;
+        }
 
         score = 0;
         scoreMulti = 1;
@@ -239,7 +237,7 @@ public class Game
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(speed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
+        anim.setDuration(Settings.gameSpeed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
         //anim.setStartOffset(100);
 
         view.startAnimation(anim);
@@ -258,8 +256,8 @@ public class Game
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(speed.animSpeed * nTimes); //Put desired duration per anim cycle here, in milliseconds
-        anim.setStartOffset(speed.pauseLength);
+        anim.setDuration(Settings.gameSpeed.animSpeed * nTimes); //Put desired duration per anim cycle here, in milliseconds
+        anim.setStartOffset(Settings.gameSpeed.pauseLength);
 
         view.startAnimation(anim);
         return anim;
@@ -302,11 +300,4 @@ public class Game
     {
         return rng;
     }
-
-    //We will use this in the animation code to allow user to set animation speed.
-        //This may need to go elsewhere to allow the user to select it outside of the game (ie from mainMenu->settings)
-
-    public static void setGameSpeed(GameSpeed newSpeed) { speed = newSpeed; }
-
-    public static GameSpeed getGameSpeed() { return speed; }
 }

@@ -58,24 +58,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void speedClick(View view)
     {
-        GameSpeed speed = Game.getGameSpeed();
-        Button button = (Button)findViewById(R.id.speedButton);
-        if(speed == GameSpeed.SLOW)
+        if (Settings.gameSpeed == null)
         {
-            speed = GameSpeed.MED;
+            Settings.gameSpeed = GameSpeed.SLOW;
+        }
+
+        Button button = (Button)findViewById(R.id.speedButton);
+
+        if(Settings.gameSpeed == GameSpeed.SLOW)
+        {
+            Settings.gameSpeed = GameSpeed.MED;
             button.setText("Medium");
         }
-        else if(speed == GameSpeed.MED)
+        else if(Settings.gameSpeed == GameSpeed.MED)
         {
-            speed = GameSpeed.FAST;
+            Settings.gameSpeed = GameSpeed.FAST;
             button.setText("Fast");
         }
         else
         {
-            speed = GameSpeed.SLOW;
+            Settings.gameSpeed = GameSpeed.SLOW;
             button.setText("Slow");
         }
-        Game.setGameSpeed(speed);
     }
 
     public void aboutClick(View view)
@@ -90,7 +94,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void soundsClick(View view) { setContentView(R.layout.sounds); }
 
-    public void settingsClick(View view){ setContentView(R.layout.settings);}
+    public void settingsClick(View view){
+        setContentView(R.layout.settings);
+
+        Button button = (Button)findViewById(R.id.speedButton);
+
+        switch (Settings.gameSpeed)
+        {
+            case SLOW:
+                button.setText("Slow");
+                break;
+            case MED:
+                button.setText("Medium");
+                break;
+            case FAST:
+                button.setText("Fast");
+        }
+    }
 
     public void exitToMenu(View view)
     {
@@ -99,7 +119,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void trackSelectClick()
+    {
+        Button button = (Button)findViewById(R.id.songChooser);
+        if(GameActivity.getRandomBool())
+        {
+            GameActivity.setRandomTrack(false);
+            GameActivity.setTrackNumber(0);
+            button.setText("Medium");
+        }
+        else if(GameActivity.getTrackNumber() == 0)
+        {
+            GameActivity.setTrackNumber(1);
+        }
+        else if(GameActivity.getTrackNumber() == 1)
+        {
+            GameActivity.setTrackNumber(2);
+        }
+        else if(GameActivity.getTrackNumber() == 2)
+        {
+            GameActivity.setTrackNumber(3);
+        }
+        else if(GameActivity.getTrackNumber() == 3)
+        {
+            GameActivity.setTrackNumber(4);
+        }
+        else if(GameActivity.getTrackNumber() == 4)
+        {
+            GameActivity.setRandomTrack(true);
+        }
+    }
 
     public TranslateAnimation selectionAnimation()
     {
@@ -170,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(Game.getGameSpeed().animSpeed); //Put desired duration per anim cycle here, in milliseconds
+        anim.setDuration(Settings.gameSpeed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
         //anim.setStartOffset(100);
 
         view.startAnimation(anim);

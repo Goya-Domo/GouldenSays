@@ -14,7 +14,8 @@ public class GameActivity extends AppCompatActivity
     private Game game;
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
-    private int trackNumber;
+    private static boolean randomTrack = Settings.randSong;
+    private static int trackNumber = Settings.trackNumber;
     private boolean playPause = true;
 
 
@@ -185,6 +186,8 @@ public class GameActivity extends AppCompatActivity
             list.get(trackNumber).start();
         }
     }
+
+
 
     public void seek(View view) {
         game.rotation(view,true,6,35);
