@@ -119,7 +119,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void trackSelectClick()
+    {
+        Button button = (Button)findViewById(R.id.songChooser);
+        if(GameActivity.getRandomBool())
+        {
+            GameActivity.setRandomTrack(false);
+            GameActivity.setTrackNumber(0);
+            button.setText("Medium");
+        }
+        else if(GameActivity.getTrackNumber() == 0)
+        {
+            GameActivity.setTrackNumber(1);
+        }
+        else if(GameActivity.getTrackNumber() == 1)
+        {
+            GameActivity.setTrackNumber(2);
+        }
+        else if(GameActivity.getTrackNumber() == 2)
+        {
+            GameActivity.setTrackNumber(3);
+        }
+        else if(GameActivity.getTrackNumber() == 3)
+        {
+            GameActivity.setTrackNumber(4);
+        }
+        else if(GameActivity.getTrackNumber() == 4)
+        {
+            GameActivity.setRandomTrack(true);
+        }
+    }
 
     public TranslateAnimation selectionAnimation()
     {
