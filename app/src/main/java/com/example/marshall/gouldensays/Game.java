@@ -19,7 +19,7 @@ import android.widget.ImageView;
 public class Game
 {
     private long seed;
-    private int numButtons, score;
+    private int numButtons, score, scoreMulti;
 
     private int instIndex; //Iterates through instructions
     private int responseIndex; //Increments while user inputs responses
@@ -27,7 +27,7 @@ public class Game
     private boolean animationAlternator; //To alternate hex spinning while showing instructions
     private ArrayList<Instruction> instructionList;
     private ArrayList<ImageView> buttons;
-    private GameSpeed speed;
+    private static GameSpeed speed;
 
     private Random rng;
     public Game(ArrayList<ImageView> buttons)
@@ -36,6 +36,7 @@ public class Game
         this.buttons = buttons;
         numButtons = 4;
         score = 0;
+        scoreMulti = 1;
         rng = new Random();
         seed = rng.nextLong();
         rng.setSeed(seed);
@@ -123,15 +124,17 @@ public class Game
                         if (responseIndex == 4)
                         {
                             addHex();
-
+                            scoreMulti *= 2;
                         }
                         else
                         {
                             if (responseIndex == 6)
                             {
                                 addHex();
+                                scoreMulti *= 2;
                             }
                         }
+                        incrementScore();
                         responseIndex = 0;
                         addNextInstruction();
                         playNextInstruction();
@@ -141,6 +144,7 @@ public class Game
                 {
                     correct = false;
                     animating = true;
+
                     for (ImageView iv : buttons)
                     {
                         if (iv.getVisibility() == View.VISIBLE)
@@ -178,6 +182,12 @@ public class Game
         }
 
         return correct;
+    }
+
+    private void incrementScore() { incrementScore(1); }
+    private void incrementScore(int base)
+    {
+        score += base * scoreMulti;
     }
 
     public void addHex()
@@ -256,10 +266,38 @@ public class Game
 
     //We will use this in the animation code to allow user to set animation speed.
         //This may need to go elsewhere to allow the user to select it outside of the game (ie from mainMenu->settings)
+
+    public static boolean setGameSpeed(int newSpeed)
+    {
+        boolean success;
+        if (newSpeed >= 3 && newSpeed < 0)
+        {
+            success = false;
+        }
+        else
+        {
+            success = true;
+
+            switch (newSpeed)
+            {
+                case 0:
+                    speed = GameSpeed.SLOW;
+                    break;
+                case 1:
+                    speed = GameSpeed.MED;
+                    break;
+                case 2:
+                    speed = GameSpeed.FAST;
+            }
+        }
+
+        return success;
+    }
+
     private enum GameSpeed{
         SLOW (200, 100),
-        MED(150, 80),
-        FAST(100, 60);
+        MED  (150, 80),
+        FAST (100, 60);
 
         private final int animSpeed;
         private final int pauseLength;
@@ -269,5 +307,4 @@ public class Game
             this.pauseLength = pauseLength;
         }
     }
-
 }
