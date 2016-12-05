@@ -227,5 +227,4 @@ public class MainActivity extends AppCompatActivity {
 
         view.startAnimation(anim);
     }
-
 }

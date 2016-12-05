@@ -15,7 +15,7 @@ public class GameActivity extends AppCompatActivity
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
     private static boolean randomTrack = Settings.randSong;
-    private static int trackNumber = Settings.trackNumber;
+    private static int trackNumber = Settings.song.trackNum;
     private boolean playPause = true;
 
 
