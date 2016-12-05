@@ -14,7 +14,6 @@ public class GameActivity extends AppCompatActivity
     private Game game;
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
-    private static boolean randomTrack = Settings.randSong;
     private static int trackNumber = Settings.song.trackNum;
     private boolean playPause = true;
 
@@ -26,8 +25,13 @@ public class GameActivity extends AppCompatActivity
 
 
         Random rng = new Random();
-        if (randomTrack) {
+        if (Settings.randSong) {
             trackNumber = rng.nextInt(5);
+        }
+        else
+        {
+            if (Settings.song != null)
+                trackNumber = Settings.song.trackNum;
         }
         setPlayers();
 
