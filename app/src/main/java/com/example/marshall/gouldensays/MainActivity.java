@@ -58,44 +58,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void speedClick(View view)
     {
-        GameSpeed speed = Game.getGameSpeed();
-        if (speed == null)
+        if (Settings.gameSpeed == null)
         {
-            speed = GameSpeed.SLOW;
-            Game.setGameSpeed(speed);
+            Settings.gameSpeed = GameSpeed.SLOW;
         }
 
         Button button = (Button)findViewById(R.id.speedButton);
 
-        switch (speed)
+        if(Settings.gameSpeed == GameSpeed.SLOW)
         {
-            case SLOW:
-                button.setText("Slow");
-                break;
-            case MED:
-                button.setText("Medium");
-                break;
-            case FAST:
-                button.setText("Fast");
-        }
-
-        if(speed == GameSpeed.SLOW)
-        {
-            speed = GameSpeed.MED;
+            Settings.gameSpeed = GameSpeed.MED;
             button.setText("Medium");
         }
-        else if(speed == GameSpeed.MED)
+        else if(Settings.gameSpeed == GameSpeed.MED)
         {
-            speed = GameSpeed.FAST;
+            Settings.gameSpeed = GameSpeed.FAST;
             button.setText("Fast");
         }
         else
         {
-            speed = GameSpeed.SLOW;
+            Settings.gameSpeed = GameSpeed.SLOW;
             button.setText("Slow");
         }
-
-        Game.setGameSpeed(speed);
     }
 
     public void aboutClick(View view)
@@ -113,16 +97,9 @@ public class MainActivity extends AppCompatActivity {
     public void settingsClick(View view){
         setContentView(R.layout.settings);
 
-        GameSpeed speed = Game.getGameSpeed();
-        if (speed == null)
-        {
-            speed = GameSpeed.SLOW;
-            Game.setGameSpeed(speed);
-        }
-
         Button button = (Button)findViewById(R.id.speedButton);
 
-        switch (speed)
+        switch (Settings.gameSpeed)
         {
             case SLOW:
                 button.setText("Slow");
@@ -213,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(Game.getGameSpeed().animSpeed); //Put desired duration per anim cycle here, in milliseconds
+        anim.setDuration(Settings.gameSpeed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
         //anim.setStartOffset(100);
 
         view.startAnimation(anim);

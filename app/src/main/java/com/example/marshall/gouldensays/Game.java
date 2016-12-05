@@ -33,8 +33,6 @@ public class Game
 
     private Random rng;
 
-    private static GameSpeed speed;
-
     public Game(ArrayList<ImageView> buttons, View scoreView)
     {
         //create a random seed and save it.
@@ -46,9 +44,9 @@ public class Game
         rng = new Random();
         seed = rng.nextLong();
         rng.setSeed(seed);
-        if (speed == null)
+        if (Settings.gameSpeed == null)
         {
-            speed = GameSpeed.SLOW;
+            Settings.gameSpeed = GameSpeed.SLOW;
         }
 
         score = 0;
@@ -239,7 +237,7 @@ public class Game
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(speed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
+        anim.setDuration(Settings.gameSpeed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
         //anim.setStartOffset(100);
 
         view.startAnimation(anim);
@@ -258,8 +256,8 @@ public class Game
         }
         anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(speed.animSpeed * nTimes); //Put desired duration per anim cycle here, in milliseconds
-        anim.setStartOffset(speed.pauseLength);
+        anim.setDuration(Settings.gameSpeed.animSpeed * nTimes); //Put desired duration per anim cycle here, in milliseconds
+        anim.setStartOffset(Settings.gameSpeed.pauseLength);
 
         view.startAnimation(anim);
         return anim;
@@ -302,11 +300,4 @@ public class Game
     {
         return rng;
     }
-
-    //We will use this in the animation code to allow user to set animation speed.
-        //This may need to go elsewhere to allow the user to select it outside of the game (ie from mainMenu->settings)
-
-    public static void setGameSpeed(GameSpeed newSpeed) { speed = newSpeed; }
-
-    public static GameSpeed getGameSpeed() { return speed; }
 }
