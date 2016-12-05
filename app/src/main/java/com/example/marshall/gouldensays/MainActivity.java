@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         }
         mainText.add((TextView)findViewById(R.id.about_text));
         mainText.add((TextView)findViewById(R.id.sounds_text));
+
+        ((TextView)findViewById(R.id.mmHighScore)).setText("High Score: " + Settings.highScore);
     }
 
     public void startGame(View view)
