@@ -314,4 +314,9 @@ public class Game
     {
         return rng;
     }
+
+    public int getScore()
+    {
+        return score;
+    }
 }

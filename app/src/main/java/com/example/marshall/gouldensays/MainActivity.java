@@ -8,10 +8,8 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import java.util.ArrayList;
-import android.view.animation.*;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
-import android.view.animation.RotateAnimation;
 import android.view.animation.Animation;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,12 +24,27 @@ public class MainActivity extends AppCompatActivity {
         mainButtons.add((ImageView)findViewById(R.id.start));
         mainButtons.add((ImageView)findViewById(R.id.how_to));
         mainButtons.add((ImageView)findViewById(R.id.settings));
+        TextView text = (TextView)findViewById(R.id.settings_text);
         mainButtons.add((ImageView)findViewById(R.id.about));
         mainButtons.add((ImageView)findViewById(R.id.sounds));
 
         mainText.add((TextView)findViewById(R.id.start_text));
         mainText.add((TextView)findViewById(R.id.how_to_text));
         mainText.add((TextView)findViewById(R.id.settings_text));
+        if (Settings.gameSpeed == null)
+            Settings.gameSpeed = GameSpeed.MED;
+
+        switch (Settings.gameSpeed)
+        {
+            case SLOW:
+                text.setText("Slow");
+                break;
+            case MED:
+                text.setText("Medium");
+                break;
+            case FAST:
+                text.setText("Fast");
+        }
         mainText.add((TextView)findViewById(R.id.about_text));
         mainText.add((TextView)findViewById(R.id.sounds_text));
     }
@@ -56,32 +69,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void speedClick(View view)
-    {
-        if (Settings.gameSpeed == null)
-        {
-            Settings.gameSpeed = GameSpeed.SLOW;
-        }
-
-        Button button = (Button)findViewById(R.id.speedButton);
-
-        if(Settings.gameSpeed == GameSpeed.SLOW)
-        {
-            Settings.gameSpeed = GameSpeed.MED;
-            button.setText("Medium");
-        }
-        else if(Settings.gameSpeed == GameSpeed.MED)
-        {
-            Settings.gameSpeed = GameSpeed.FAST;
-            button.setText("Fast");
-        }
-        else
-        {
-            Settings.gameSpeed = GameSpeed.SLOW;
-            button.setText("Slow");
-        }
-    }
-
     public void aboutClick(View view)
     {
         setContentView(R.layout.about);
@@ -98,20 +85,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settingsClick(View view){
-        setContentView(R.layout.settings);
+        TextView text = (TextView)findViewById(R.id.settings_text);
 
-        Button button = (Button)findViewById(R.id.speedButton);
-
-        switch (Settings.gameSpeed)
+        if (Settings.gameSpeed == null)
         {
-            case SLOW:
-                button.setText("Slow");
-                break;
-            case MED:
-                button.setText("Medium");
-                break;
-            case FAST:
-                button.setText("Fast");
+            Settings.gameSpeed = GameSpeed.SLOW;
+        }
+
+        if(Settings.gameSpeed == GameSpeed.SLOW)
+        {
+            Settings.gameSpeed = GameSpeed.MED;
+            text.setText("Medium");
+        }
+        else if(Settings.gameSpeed == GameSpeed.MED)
+        {
+            Settings.gameSpeed = GameSpeed.FAST;
+            text.setText("Fast");
+        }
+        else
+        {
+            Settings.gameSpeed = GameSpeed.SLOW;
+            text.setText("Slow");
         }
     }
 
@@ -212,22 +206,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return retAnim;
     }
-    public void rotation(View view, boolean clockwise)
-    {
-        RotateAnimation anim;
-        if(clockwise)
-        {
-            anim = new RotateAnimation(0.0f, 60.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        }
-        else
-        {
-            anim = new RotateAnimation(60.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        }
-        anim.setInterpolator(new LinearInterpolator());
 
-        anim.setDuration(Settings.gameSpeed.animSpeed); //Put desired duration per anim cycle here, in milliseconds
-        //anim.setStartOffset(100);
-
-        view.startAnimation(anim);
-    }
 }
