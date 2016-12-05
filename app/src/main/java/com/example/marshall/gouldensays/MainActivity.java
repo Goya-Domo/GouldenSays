@@ -122,31 +122,37 @@ public class MainActivity extends AppCompatActivity {
     public void trackSelectClick()
     {
         Button button = (Button)findViewById(R.id.songChooser);
-        if(GameActivity.getRandomBool())
+        if(Settings.randSong)
         {
-            GameActivity.setRandomTrack(false);
-            GameActivity.setTrackNumber(0);
-            button.setText("Medium");
+            Settings.randSong = false;
+            Settings.trackNumber = 0;
+            button.setText("Downtown Cab");
         }
-        else if(GameActivity.getTrackNumber() == 0)
+        else if(Settings.trackNumber == 0)
         {
-            GameActivity.setTrackNumber(1);
+            Settings.trackNumber = 1;
+            button.setText("Linn's Song");
         }
-        else if(GameActivity.getTrackNumber() == 1)
+        else if(Settings.trackNumber == 1)
         {
-            GameActivity.setTrackNumber(2);
+            Settings.trackNumber = 2;
+            button.setText("Skydive");
         }
-        else if(GameActivity.getTrackNumber() == 2)
+        else if(Settings.trackNumber == 2)
         {
-            GameActivity.setTrackNumber(3);
+            Settings.trackNumber = 3;
+            button.setText("Flying");
         }
-        else if(GameActivity.getTrackNumber() == 3)
+        else if(Settings.trackNumber == 3)
         {
-            GameActivity.setTrackNumber(4);
+            Settings.trackNumber = 4;
+            button.setText("Ruben's");
         }
-        else if(GameActivity.getTrackNumber() == 4)
+        else if(Settings.trackNumber == 4)
         {
-            GameActivity.setRandomTrack(true);
+            Settings.randSong = true;
+            Settings.trackNumber = 0;
+            button.setText("Random");
         }
     }
 
