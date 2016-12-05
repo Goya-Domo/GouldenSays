@@ -111,7 +111,7 @@
                         android:layout_marginLeft="10dp"
                         android:textColor="#000000"
                         android:textSize="9pt"
-                        android:text="Tap the buttons on the order they rotate."/>
+                        android:text="Tap the buttons in the order they rotate."/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -129,7 +129,7 @@
                         android:textColor="#000000"
                         android:textSize="9pt"
                         android:textStyle="bold"
-                        android:text="The game will add another button to the sequence after you are successful. \nThen it will add more buttons the farther you get."/>
+                        android:text="The game will add another button to the sequence after you are successful. \nMore buttons will generate as you progress!"/>
 
                 </LinearLayout>
                 <LinearLayout

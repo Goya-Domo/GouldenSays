@@ -67,7 +67,7 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#000000"
                 android:textSize="9pt"
-                android:text="Songs are picked at random when you start the game. \n\nYou can seek though songs  by cligking the seek button. \n\nTo pause or mute press the pause button."/>
+                android:text="Songs are picked at random when you start the game. \n\nYou can seek through songs  by clicking the seek button. \n\nTo pause or mute, press the pause button."/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
