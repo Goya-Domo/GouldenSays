@@ -1,17 +1,10 @@
 package com.example.marshall.gouldensays;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -134,7 +127,7 @@ public class GameActivity extends AppCompatActivity
         buttons.add((ImageView)findViewById(R.id.green_hex));
         buttons.add((ImageView)findViewById(R.id.black_hex));
         buttons.add((ImageView)findViewById(R.id.white_hex));
-        game = new Game(buttons);
+        game = new Game(buttons, findViewById(R.id.currentscore));
 
         game.newGame();
     }
@@ -179,14 +172,14 @@ public class GameActivity extends AppCompatActivity
 
         if (playPause)
         {
-            game.rotation(view,true,6);
+
             findViewById(R.id.play).setBackgroundResource(R.drawable.play);
             playPause = false;
             list.get(trackNumber).pause();
         }
         else
         {
-            game.rotation(view,true,6);
+
             findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
             playPause = true;
             list.get(trackNumber).start();
@@ -194,7 +187,7 @@ public class GameActivity extends AppCompatActivity
     }
 
     public void seek(View view) {
-        game.rotation(view,true,6);
+
         list.get(trackNumber).stop();
         try
         {
