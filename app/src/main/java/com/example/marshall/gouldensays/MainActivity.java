@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import java.util.ArrayList;
 import android.view.animation.*;
@@ -61,19 +62,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void speedClick(View view)
+    public void speedClick(Button button)
     {
         if(speed == GameSpeed.SLOW)
         {
             speed = GameSpeed.MED;
+            CharSequence change = "Medium";
+            button.setText(change);
         }
         else if(speed == GameSpeed.MED)
         {
             speed = GameSpeed.FAST;
+            CharSequence change = "Fast";
+            button.setText(change);
         }
         else
         {
             speed = GameSpeed.SLOW;
+            CharSequence change = "Slow";
+            button.setText(change);
         }
     }
 
@@ -88,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void soundsClick(View view) { setContentView(R.layout.sounds); }
+
+    public void settingsClick(View view){ setContentView(R.layout.settings);}
 
     public void exitToMenu(View view)
     {
