@@ -172,14 +172,14 @@ public class GameActivity extends AppCompatActivity
 
         if (playPause)
         {
-
+            game.rotation(view,true,6,35);
             findViewById(R.id.play).setBackgroundResource(R.drawable.play);
             playPause = false;
             list.get(trackNumber).pause();
         }
         else
         {
-
+            game.rotation(view,true,6,35);
             findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
             playPause = true;
             list.get(trackNumber).start();
@@ -187,7 +187,7 @@ public class GameActivity extends AppCompatActivity
     }
 
     public void seek(View view) {
-
+        game.rotation(view,true,6,35);
         list.get(trackNumber).stop();
         try
         {
