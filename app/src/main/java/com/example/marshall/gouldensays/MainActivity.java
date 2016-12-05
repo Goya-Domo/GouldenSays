@@ -62,25 +62,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void speedClick(Button button)
+    public void speedClick(View view)
     {
+        Button button = (Button)findViewById(R.id.speedButton);
         if(speed == GameSpeed.SLOW)
         {
             speed = GameSpeed.MED;
-            CharSequence change = "Medium";
-            button.setText(change);
+            button.setText("Medium");
         }
         else if(speed == GameSpeed.MED)
         {
             speed = GameSpeed.FAST;
-            CharSequence change = "Fast";
-            button.setText(change);
+            button.setText("Fast");
         }
         else
         {
             speed = GameSpeed.SLOW;
-            CharSequence change = "Slow";
-            button.setText(change);
+            button.setText("Slow");
         }
     }
 
