@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -55,19 +56,26 @@
             android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:orientation="vertical"
-
             android:text=""
             >
-
-            <TextView
-                android:layout_height="wrap_content"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="#000000"
-                android:textSize="9pt"
-                android:text="Songs are picked at random when you start the game. \n\nYou can seek though songs  by cligking the seek button. \n\nTo pause or mute press the pause button."/>
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:textSize="10pt"
+                    android:layout_marginTop="5dp"
+                    android:text="Game Speed: "
+                    />
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/speedButton"
+                    android:onClick="speedClick"
+                    android:text="Slow"/>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

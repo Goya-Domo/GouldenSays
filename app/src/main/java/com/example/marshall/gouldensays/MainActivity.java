@@ -61,6 +61,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void speedClick(View view)
+    {
+        if(speed == GameSpeed.SLOW)
+        {
+            speed = GameSpeed.MED;
+        }
+        else if(speed == GameSpeed.MED)
+        {
+            speed = GameSpeed.FAST;
+        }
+        else
+        {
+            speed = GameSpeed.SLOW;
+        }
+    }
+
     public void aboutClick(View view)
     {
         setContentView(R.layout.about);
@@ -79,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
 
     public TranslateAnimation selectionAnimation()
     {
@@ -154,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
 
         view.startAnimation(anim);
     }
+
     private enum GameSpeed{
         SLOW (200, 100),
         MED(150, 80),
