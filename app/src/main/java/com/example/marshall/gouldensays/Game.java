@@ -267,44 +267,7 @@ public class Game
     //We will use this in the animation code to allow user to set animation speed.
         //This may need to go elsewhere to allow the user to select it outside of the game (ie from mainMenu->settings)
 
-    public static boolean setGameSpeed(int newSpeed)
-    {
-        boolean success;
-        if (newSpeed >= 3 && newSpeed < 0)
-        {
-            success = false;
-        }
-        else
-        {
-            success = true;
+    public static void setGameSpeed(GameSpeed newSpeed) { speed = newSpeed; }
 
-            switch (newSpeed)
-            {
-                case 0:
-                    speed = GameSpeed.SLOW;
-                    break;
-                case 1:
-                    speed = GameSpeed.MED;
-                    break;
-                case 2:
-                    speed = GameSpeed.FAST;
-            }
-        }
-
-        return success;
-    }
-
-    private enum GameSpeed{
-        SLOW (200, 100),
-        MED  (150, 80),
-        FAST (100, 60);
-
-        private final int animSpeed;
-        private final int pauseLength;
-
-        GameSpeed(int animSpeed, int pauseLength) {
-            this.animSpeed = animSpeed;
-            this.pauseLength = pauseLength;
-        }
-    }
+    public static GameSpeed getGameSpeed() { return speed; }
 }
