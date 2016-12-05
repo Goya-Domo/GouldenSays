@@ -92,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.how_to);
     }
 
-    public void soundsClick(View view) { setContentView(R.layout.sounds); }
+    public void soundsClick(View view) {
+        setContentView(R.layout.sounds);
+        ((Button)findViewById(R.id.songChooser)).setText(Settings.song.name);
+    }
 
     public void settingsClick(View view){
         setContentView(R.layout.settings);
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void trackSelectClick()
+    public void trackSelectClick(View view)
     {
         Button button = (Button)findViewById(R.id.songChooser);
         if(Settings.randSong)
