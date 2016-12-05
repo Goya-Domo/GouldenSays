@@ -26,8 +26,9 @@ public class GameActivity extends AppCompatActivity
 
 
         Random rng = new Random();
-        if (randomTrack)
+        if (randomTrack) {
             trackNumber = rng.nextInt(5);
+        }
         setPlayers();
 
         player1.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
