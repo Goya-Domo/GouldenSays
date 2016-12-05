@@ -16,6 +16,7 @@ public class GameActivity extends AppCompatActivity
     private ArrayList<MediaPlayer> list = new ArrayList<>();
     private static int trackNumber = Settings.song.trackNum;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -228,4 +229,6 @@ public class GameActivity extends AppCompatActivity
         Settings.musicPlay = true;
         findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
     }
+
+
 }

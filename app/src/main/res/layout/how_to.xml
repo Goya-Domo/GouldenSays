@@ -84,7 +84,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-
                         android:textColor="#000000"
                         android:textSize="9pt"
                         android:text="Buttons will rotate in game in the order you should tap them."/>
@@ -97,6 +96,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
+
                     <ImageView
                         android:id="@+id/blue_hex"
                         android:src="@drawable/blue_hex"
@@ -105,6 +105,7 @@
                         android:layout_height="80dp"
                         android:rotation="30"
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

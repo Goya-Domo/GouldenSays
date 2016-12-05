@@ -115,20 +115,7 @@
             android:textSize="8pt"
             android:textAllCaps="true"
             android:textColor="#b044f0" />
-        <TextView
-            android:id="@+id/settings_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/settings"
-            android:layout_alignTop="@+id/settings"
-            android:layout_alignRight="@+id/settings"
-            android:layout_alignBottom="@+id/settings"
-            android:layout_margin="1dp"
-            android:gravity="center"
-            android:text="SETTINGS"
-            android:textSize="8pt"
-            android:textAllCaps="true"
-            android:textColor="#b044f0" />
+
         <TextView
             android:id="@+id/how_to_text"
             android:layout_width="wrap_content"
@@ -143,6 +130,20 @@
             android:textSize="8pt"
             android:textAllCaps="true"
             android:textColor="#b044f0" />
+
+        <TextView
+            android:id="@+id/settings_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="SETTINGS"
+            android:textSize="8pt"
+            android:textAllCaps="true"
+            android:textColor="#b044f0"
+            android:layout_alignBaseline="@+id/sounds_text"
+            android:layout_alignBottom="@+id/sounds_text"
+            android:layout_alignRight="@+id/settings"
+            android:layout_alignEnd="@+id/settings" />
 
     </RelativeLayout>
 
