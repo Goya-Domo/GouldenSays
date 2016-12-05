@@ -15,8 +15,6 @@ public class GameActivity extends AppCompatActivity
     private MediaPlayer player1, player2, player3, player4, player5;
     private ArrayList<MediaPlayer> list = new ArrayList<>();
     private static int trackNumber = Settings.song.trackNum;
-    private boolean playPause = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +136,13 @@ public class GameActivity extends AppCompatActivity
         game.newGame();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        exitToMenu(null);
+    }
+
     public void setPlayers()
     {
         player2 = MediaPlayer.create(GameActivity.this, R.raw.song1);
@@ -152,12 +157,22 @@ public class GameActivity extends AppCompatActivity
         list.add(player4);
         list.add(player5);
 
-        list.get(trackNumber).start();
+        if (Settings.musicPlay)
+        {
+            list.get(trackNumber).start();
+        }
+        else
+        {
+            findViewById(R.id.play).setBackgroundResource(R.drawable.play);
+        }
     }
 
     public void exitToMenu(View view)
     {
         list.get(trackNumber).stop();
+        if (game.getScore() > Settings.highScore)
+            Settings.highScore = game.getScore();
+
         try
         {
             list.get(trackNumber).prepare();
@@ -176,19 +191,19 @@ public class GameActivity extends AppCompatActivity
     //media methods
     public void playPause(View view) {
 
-        if (playPause)
+        if (Settings.musicPlay)
         {
             game.rotation(view,true,6,35);
             findViewById(R.id.play).setBackgroundResource(R.drawable.play);
-            playPause = false;
             list.get(trackNumber).pause();
+            Settings.musicPlay = false;
         }
         else
         {
             game.rotation(view,true,6,35);
             findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
-            playPause = true;
             list.get(trackNumber).start();
+            Settings.musicPlay = true;
         }
     }
 
@@ -203,7 +218,6 @@ public class GameActivity extends AppCompatActivity
         }
         catch (Exception ex)
         {
-
         }
         trackNumber++;
         if (trackNumber == list.size())
@@ -211,7 +225,7 @@ public class GameActivity extends AppCompatActivity
             trackNumber = 0;
         }
         list.get(trackNumber).start();
-        playPause = true;
+        Settings.musicPlay = true;
         findViewById(R.id.play).setBackgroundResource(R.drawable.pause);
     }
 }
